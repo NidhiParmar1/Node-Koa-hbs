@@ -1,0 +1,37 @@
+<div class= "container">
+     
+    <form method='post' action='savedeal'>
+    <div class="form-control">
+    <div class="form-group">
+         <label for="username" class="text-info">Place Name:</label>   
+         <input type="hidden" name='id' class="form-control" value ="<%= dealdata._id %>">
+         <input type="hidden" name='ownerid' class="form-control" value ="<%= dealdata.ownerid%>">                
+         <input type="text" name='placename' class="form-control" value ="<%= dealdata.place %>" placeholder="Place name">
+    </div>
+    <div class="form-group">
+         <label for="username" class="text-info">Deal Name:</label>
+        <input type="text" name='deal' class="form-control" value ="<%= dealdata.dealname%>" placeholder="Deal">
+    </div>
+    <div class="form-group">
+         <label for="username" class="text-info">Deal Description:</label>
+        <textarea name='dealdesc' class="form-control" placeholder="About Deal"></textarea>
+    </div>
+    <div class="form-group">
+         <label for="username" class="text-info">Deal Validity:</label>
+        <label for="time">From:</label>
+                <input type="date"  name="fromdate">
+        <label for="time">To:</label>
+                <input type="date"  name="todate">
+    </div>
+    <div class="form-group">
+         <label for="username" class="text-info">Deal Validity Hours:</label>
+         <label for="time">From:</label>
+                <input type="time"  name="fromtime">
+        <label for="time">To:</label>
+                <input type="time"  name="totime">
+    </div>
+
+    <div class="form-group text-center"><input type='submit' class="btn btn-primary" value="Save Deal"></div>
+</div>
+</form>
+</div>

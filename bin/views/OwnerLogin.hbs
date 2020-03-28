@@ -1,0 +1,70 @@
+<div id="login">
+  <% if(msg) { %>
+    <div class="alert alert-danger alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong><%= msg %></strong> 
+  </div>
+    <% }%>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" name="myform"  onsubmit="return validateform()"  class="form" action="checkOwnerLogin" method="post">
+                            <h3 class="text-center text-info">Owner Login</h3>
+                            <div class="form-group">
+                                <label for="username" class="text-info">UserId:</label><br>
+                                <input type="email" name="oemailid" id="username" class="form-control" placeholder=" Enter UserId" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password:</label><br>
+                                <input type="password" name="opassword" id="password" class="form-control"placeholder=" Enter Password" required>
+                            </div>
+                            <div class="form-group">
+                              <br><br>
+                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                            </div>
+                            <div id="register-link" class="text-right">
+                                <a href="ownersign" class="text-info">Register here</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        body {
+  margin: 0;
+  padding: 0;
+  background-color: #17a2b8;
+  height: 100vh;
+}
+#login .container #login-row #login-column #login-box {
+  margin-top: 120px;
+  max-width: 600px;
+  height: 320px;
+  border: 1px solid #9C9C9C;
+  background-color: #EAEAEA;
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}
+    </style>
+<script>  
+function validateform(){  
+var uid=document.myform.oemailid.value;  
+var password=document.myform.opassword.value;  
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if(!uid.match(mailformat))
+{
+alert("You have entered an invalid email address!"); 
+  return false;  
+}else if(password.length<4){  
+  alert("Password must be at least 4 characters long.");  
+  return false;  
+  }  
+}  
+</script>  

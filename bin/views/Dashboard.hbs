@@ -1,0 +1,15 @@
+<% if(msg) {%>
+<div class="alert alert-success alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong><%= msg %></strong> 
+  </div>
+  <% }%>
+  <% if(entry > 1) {%>
+  <a class="btn btn-success" href="switchuser"> Switch User</a>
+  <% } %>
+<div class='container text-center'>
+<a class="btn btn-success" href="viewpaginatedplace">Places: <%-placecount%></a> 
+<a class="btn btn-danger" href="viewpaginateddeal"> Deals  : <%-dealcount%></a>
+
+</div>
+

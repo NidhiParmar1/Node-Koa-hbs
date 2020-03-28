@@ -1,0 +1,51 @@
+<% if (dealdata){ %>
+<div id='deal'class='container'>
+  <table class='table table-bordered text-center'>
+      <thead><th>Deal</th>
+      <th></th>
+      </thead>
+     <% dealdata.forEach(data=>{ %>
+    <tr>
+      <td> <a class="btn" href="viewdeal?id=<%= data._id%>"><%= data.dealname %></a></td>
+      <td> <a class= "btn btn-danger" href="deletedeal?id=<%= data._id %>" onclick="return confirm('Do you want to delete deal?')">Delete</a> </td>
+    </tr>
+<% }) %>
+  </table>
+</div>
+
+
+<% if (pages > 0) { %>
+                <ul class="pagination text-center">
+                    <% if (currentpage == 1) { %>
+                        <li class="disabled"><a>First</a></li>
+                    <% } else { %>
+                        <li><a href="viewpaginateddeal?page= 1">First</a></li>
+                    <% } %>
+                    <% var i = (Number(currentpage) > 2 ? Number(currentpage) - 1 : 1) %>
+                    <% if (i !== 1) { %>
+                        <li class="disabled"><a>...</a></li>
+                    <% } %>
+                    <% for (; i <= (Number(currentpage) + 1) && i <= pages; i++) { %>
+                        <% if (i == currentpage) { %>
+                            <li class="active"><a><%= i %></a></li>
+                        <% } else { %>
+                            <li><a href= "viewpaginateddeal?page= <%= i %>"><%= i %></a></li>
+                        <% } %>
+                        <% if (i == Number(currentpage) + 4 && i < pages) { %>
+                            <li class="disabled"><a>...</a></li>
+                        <% } %>
+                    <% } %>
+                    <% if (currentpage == pages) { %>
+                        <li class="disabled"><a>Last</a></li>
+                    <% } else { %>
+                        <li><a href="/<%= pages %>">Last</a></li>
+                    <% } %>
+                </ul>
+            <% } %>
+<% } %>
+            <style>
+th {
+    text-align: center;
+    font-size: 18px;
+  }
+  </style>

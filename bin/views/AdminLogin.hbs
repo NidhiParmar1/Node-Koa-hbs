@@ -1,0 +1,65 @@
+<script>  
+function validateform(){  
+var name=document.myform.aname.value;  
+var password=document.myform.apassword.value;  
+  
+if (name==null || name==""){  
+  alert(" User Name can't be blank");  
+  return false;  
+}else if(password.length<4){  
+  alert("Password must be at least 4 characters long.");  
+  return false;  
+  }  
+}  
+</script>  
+<% if(msg) {%>
+<div class="alert alert-success alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong><%= msg %></strong> 
+  </div>
+  <% }%>
+<div id="login" class="container">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12 ">
+                        <form id="login-form" name="myform"class="form" action="checkadminlogin" method="post" onsubmit="return validateform()">
+                            <h3 class="text-center text-info">Admin Login</h3>
+                            <div class="form-group">
+                                <label for="username" class="text-info">Username:</label><br>
+                                <input type="text" name="aname" id="username" class="form-control" placeholder="Enter Username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password:</label><br>
+                                <input type="password" name="apassword" id="password" class="form-control" placeholder="Enter Password" required>
+                            </div>
+                            <div class="text-center text-white pt-5">
+                            <input type="submit" name="submit" class="btn btn-info btn-md" value="Login">
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+    <style>
+        body {
+  margin: 0;
+  padding: 0;
+  background-color: #17a2b8;
+  height: 100vh;
+}
+#login .container #login-row #login-column #login-box {
+  margin-top: 120px;
+  max-width: 600px;
+  height: 320px;
+  border: 1px solid #9C9C9C;
+  background-color: #EAEAEA;
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}
+    </style>

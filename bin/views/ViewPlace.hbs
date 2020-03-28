@@ -1,0 +1,24 @@
+<h2>Hey This is View Places Page</h2>
+<% if (placedata){ %>
+<div class="container">
+<table class="table table-striped">
+     <thead><th>Place</th>
+          <th>Address</th>
+          <th></th>
+          <th></th>
+    </thead>
+    <% placedata.forEach(data=>{ %>
+    <tr> <td><%= data.place %> </td> 
+    <td><%= data.placeaddress.address %> </td> 
+    <td><a class="btn btn-info" href="adddeal?id=<%= data._id %>"> Add Deal </a></td>
+    <td><a class="btn btn-info" href="viewownerdeal?id=<%= data._id %>"> View Deals </a></td>
+    </tr>
+    <% }) %>
+</table>
+</div>
+<% }%>
+<style>
+th {
+    font-size: 18px;
+  }
+  </style>

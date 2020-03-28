@@ -1,0 +1,18 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Happy Hour's Hunter</a>
+    </div>
+    <% if(type === 'Owner') {%>
+    <div class="nav navbar-brand"><p class="active"><a href="dashboard">Dashbord</a></p></div>
+    <% }%>
+    <% if(type === 'User') {%>
+      <div class="nav navbar-brand"><a href="home">Home</a></div>
+      <% }%>
+    <% if(user) {%>
+    <div class="navbar-nav navbar-brand navbar-right"> Hello, <%= user%></div>
+      <div class="nav navbar-brand navbar-right"><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> LogOut </a></div>
+      <% }%>
+    </div>
+  </div>
+</nav>

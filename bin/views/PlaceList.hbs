@@ -1,0 +1,57 @@
+<% if (placedata){ %>
+<div id='place'class="">
+  <a class="btn btn-dark" href="addnewplace?oid=<%- user%>" role="button">Add Place</a>
+  <br></br>
+  <table class="table table-bordered text-center">
+      <thead class='text-center'><th>Place</th>
+      <th>Place Status</th>
+      <th></th>
+      <th></th></thead>
+        <% placedata.forEach(data=>{ %>
+    
+    <tr class="ist-group-item">
+      <td><a class="btn " href="viewplace?id=<%= data._id %>"> <%= data.place %></a></td>
+      <td> <%= data.placestatus %></td>
+        <td> <a class= "btn btn-success" href="editplace?id=<%= data._id %>"onclick="return confirm('Do you want to edit place?')">Edit</a></td>
+        <td><a class= "btn btn-danger" href="deleteplace?id=<%= data._id %>"onclick="return confirm('Do you want to delete place?')">Delete</a></td>
+    </tr>
+<% }) %>
+</table>
+</div>
+
+<% if (pages > 0) { %>
+                <ul class="pagination text-center">
+                    <% if (currentpage == 1) { %>
+                        <li class="disabled"><a>First</a></li>
+                    <% } else { %>
+                        <li><a href="viewpaginatedplace?page=1">First</a></li>
+                    <% } %>
+                    <% var i = (Number(currentpage) > 2 ? Number(currentpage) - 1 : 1) %>
+                    <% if (i !== 1) { %>
+                        <li class="disabled"><a>...</a></li>
+                    <% } %>
+                    <% for (; i <= (Number(currentpage) + 1) && i <= pages; i++) { %>
+                        <% if (i == currentpage) { %>
+                            <li class="active"><a><%= i %></a></li>
+                        <% } else { %>
+                            <li><a href= "viewpaginatedplace?page=<%= i%>"><%= i %></a></li>
+                        <% } %>
+                        <% if (i == Number(currentpage) + 1 && i < pages) { %>
+                            <li class="disabled"><a>...</a></li>
+                        <% } %>
+                    <% } %>
+                    <% if (currentpage === pages) { %>
+                        <li class="disabled"><a>Last</a></li>
+                    <% } else { %>
+                        <li><a href="viewpaginatedplace?page=<%= pages%>">Last</a></li>
+                    <% } %>
+                </ul>
+            <% } %>
+
+<% } %>
+<style>
+th {
+    text-align: center;
+    font-size: 18px;
+  }
+  </style>

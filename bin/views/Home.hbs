@@ -1,0 +1,31 @@
+<% if(entry > 1) {%>
+  <div class ='text-right'> <a class=" btn btn-success" href="switchuser"> Switch User</a></div>
+  <% } %>
+<h3 class='text-center'>Welcome, Home</h3>
+<% if(msg) {%>
+<div class="alert alert-success alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong><%= msg %></strong> 
+  </div>
+  <% } %>
+  
+<div class="container">
+<table class="table table-bordered text-center">
+     <thead><th>Places</th>
+          <th>Store Id</th>
+          <th> </th>
+    </thead>
+    <% udata.forEach(data=>{ %>
+    <tr> <td><%= data.place %> </td> 
+    <td><%= data.ownerid %> </td>
+    <td><a class="btn btn-danger" href="viewuserdeal?id=<%= data._id %>"> View Deals </a></td>
+    </tr> 
+    <% }) %>
+</table>
+</div>
+<style>
+  th {
+    text-align: center;
+    font-size: 18px;
+  }
+   </style>

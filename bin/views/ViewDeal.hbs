@@ -1,0 +1,29 @@
+<h2 class="text-center">Hey This is View Deals Page</h2>
+<div class="container">
+<% if(dealdata) { %>
+<table class="table table-bordered">
+     <thead>
+          <th>Deal</th>
+          <th>About </th>
+          <th>Deal Validity</th>
+          <th>Deal Hours</th>
+          <th></th>
+    </thead>
+    <% dealdata.forEach(data=>{ %>
+    <tr> 
+    <td><%= data.dealname %> </td> 
+    <td><%= data.dealdescription %> </td> 
+    <td>From: <%= data.dealvalidity.fromdate %>  To: <%= data.dealvalidity.todate %></td>
+    <td>From: <%= data.dealvalidity.fromtime %>  To: <%= data.dealvalidity.totime %></td> 
+    <td><a class="btn btn-info" href="editdeal?id=<%= data._id %>"> Edit Deal </a></td>
+    </tr>
+    <% }) %>
+</table>
+<% } %>
+</div>
+<style>
+th {
+    text-align: center;
+    font-size: 18px;
+  }
+  </style>

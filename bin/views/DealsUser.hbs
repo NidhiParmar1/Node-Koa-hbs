@@ -1,0 +1,27 @@
+<div class="container">
+<% if (dealdata.length) { %>
+<table class="table table-bordered">
+     <thead>
+          <th>Deal</th>
+          <th>About </th>
+          <th>Deal Validity</th>
+          <th>Deal Hours</th>
+          <th></th>
+    </thead>
+    <% dealdata.forEach(data=>{ %>
+    <tr> 
+    <td><%= data.dealname %> </td> 
+    <td><%= data.dealdescription %> </td> 
+    <td><table><thead><th>From Date</th>
+    <th>To Date</th></thead>
+    <td><%= data.dealvalidity.fromdate%> </td>
+    <td><%= data.dealvalidity.todate%></td>
+    </table>
+    </td>
+    <td>From: <%=data.dealvalidity.fromtime %> To: <%=data.dealvalidity.totime %>  </td> 
+    <td><a class="btn" href="editdeal?id=<%= data._id %>">  </a></td>
+    </tr>
+    <% }) %>
+</table>
+<% } %>
+</div>

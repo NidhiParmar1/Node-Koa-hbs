@@ -1,0 +1,43 @@
+
+<form method='post' action='saveplace'>
+  <div class="form-group">
+      <input type="hidden" name='oid' class="form-control" value ="<%- user%>" placeholder="Id">
+      <label for="username" class="text-info">Place:</label><br>
+      <input type="text" id='pname' name='pname' class="form-control" placeholder="Place name">
+  </div>
+  <div id="errmsg" style=" color:red"></div>
+  <div class="form-group">
+    <label for="username" class="text-info">Place Address:</label><br>
+    <input type="text" id='paddress' name='address' class="form-control" placeholder="Place Address">
+    </div>
+    <div class="form-inline">
+    <label for="username" class="text-info">Latitude: </label>
+    <input type="number" id='paddress' name='lat' class="form-control" placeholder="">
+    <label for="username" class="text-info">Longitude: </label>
+    <input type="number" id='paddress' name='lng' class="form-control" placeholder="">
+    </div>
+    <div class="form-group">
+       <input type='submit' value="save">
+    </div>
+</form>
+
+<script>
+$(document).ready(function(){
+  $("#pname").blur(function(){
+    var id=$("#pname").val();
+//    alert(id)
+    $.ajax({
+      url:  'checkplacename',
+      data:"pname="+id,
+      type:'get',
+      success:function(response)
+      {
+    // alert(response)
+        if(response=="Already Exist")
+        $("#pname").val(" ");
+        $("#errmsg").html(id+" "+response);
+        }
+     });  //AJAX end
+  });   //blur end
+});    //ready end
+</script>
